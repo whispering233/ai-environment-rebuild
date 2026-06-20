@@ -8,5 +8,6 @@
 ## [Unreleased]
 ### Added
 - 初始版本：初始化github发布工作流，添加README.md
+- 项目骨架，初始化项目骨架
 
 
