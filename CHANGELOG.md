@@ -7,6 +7,9 @@
 
 ## [Unreleased]
 
+### Added 
+- MIT License
+
 
 ## [v0.1.0] - 2026-06-20
 
