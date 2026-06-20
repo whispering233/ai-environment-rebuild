@@ -1,1 +1,18 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Local config
+local/
+
+# OpenCode artifacts
 .omo/
+
+# OS files
+.DS_Store
+*.swp
+*.swo
+
+# Node
+node_modules/
