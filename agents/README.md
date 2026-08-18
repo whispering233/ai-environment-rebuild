@@ -1,21 +1,20 @@
 # Agents — AI Agent 安装知识
 
-本子项目包含各主流 AI 编码 Agent 的安装要点、前提条件、注意事项。每个 Agent 一个子目录，列出独立的安装指引。
+每个 Agent 一个子目录，知识**自包含**（概述、安装目标、来源链接、配置、验证、更新、关键注意点），不引用其他目录的知识。
 
 ## Agent 一览
 
-| Agent | 适用场景 | 依赖 | 安装方式 |
-|-------|----------|------|----------|
-| [Claude Code](./claude-code/README.md) | 通用 AI 编码、代码生成、重构 | Node.js 18+, Anthropic API Key | `npx` / `npm global` |
-| [Codex CLI](./codex-cli/README.md) | OpenAI 生态 AI 编码 | Node.js 18+, OpenAI API Key | `npm install -g @openai/codex` |
-| [Aider](./aider/README.md) | 开源 AI 结对编程、多模型支持 | Python 3.10+, Git, API Key | `pip install aider-chat` / `uv pip install aider-chat` |
+| Agent | 定位 | 依赖 | 文档 |
+|-------|------|------|------|
+| [Claude Code](./claude-code/README.md) | Anthropic 终端 AI 编码 | Node.js 18+ | `agents/claude-code/` |
+| [Codex CLI](./codex-cli/README.md) | OpenAI 终端 AI 编码 | Node.js 18+ | `agents/codex-cli/` |
+| [Aider](./aider/README.md) | 开源结对编程，多模型 | Python 3.10+、Git | `agents/aider/` |
+| [OpenCode](./opencode/README.md) | 开源终端 AI 编码 | Node.js | `agents/opencode/` |
+| [Pi](./pi/README.md) | 极简终端编码 harness，可扩展 | Node.js | `agents/pi/` |
 
-## 知识层 vs 编排层
+## 定位说明
 
-本目录属于**知识层**，只描述如何安装，不决定执行顺序。执行顺序由 [workflows/](../workflows/README.md) 中的工作流决定。
-
-关于项目整体结构、知识层与编排层的分离规则，请参阅 [INDEX.md](../INDEX.md) 和 [RULES.md](../RULES.md)。
-
-## 隐私说明
-
-所有 Agent 安装均涉及 API Key 配置。请严格遵守 [RULES.md](../RULES.md) 中的隐私保护规则，切勿将真实 API Key 写入文件或对话日志。本目录中的所有文档均使用 `your-api-key-here` 等占位符代替真实值。
+- 本目录属于**知识层**：只描述安装目标与关键经验，不决定执行顺序
+- 执行顺序由 [workflows/](../workflows/README.md) 编排
+- 详细安装步骤以各 Agent 的**来源链接**（官方文档）为准，LLM 拉取后自行判断执行
+- 所有 Agent 均涉及 API Key，遵守 [commons/AGENTS.md](../commons/AGENTS.md) 拉取的全局规则中的隐私保护要求

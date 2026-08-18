@@ -1,33 +1,36 @@
 # AI Environment Rebuild
 
-AI Environment Rebuild - 一个给AI阅读和执行的工作流项目，帮助AI快速在各种环境中搭建AI工作环境。包括环境依赖、各大 Agent Code、方便的 Agent Utils、配置路径设置、用户规则文件、推荐的 Skills、推荐的 Plugins、注意事项和易错点。
+> 当前版本：**v0.1.1**（2026-08-18）
 
-> **AI 路由规则**: AI阅读完毕后，请先阅读 [INDEX.md](./INDEX.md) 了解项目结构和路由规则，再根据 [RULES.md](./RULES.md) 的约束执行工作。
+一个给 AI 阅读和执行的环境搭建编排项目。**本项目只编排安装顺序和安装目标，不是详细严格的安装步骤说明** —— 详细步骤由 LLM 拉取各条目的来源链接自行判断执行。
 
-## 项目包含
-
-- **环境依赖** — WSL2、Ubuntu 等平台依赖安装
-- **Agent Code** — Claude Code、Codex CLI、Aider 等 AI Agent 安装
-- **Agent Utils** — 辅助工具和脚本
-- **配置设置** — OpenCode、Shell 等配置文件指引
-- **规则文件** — AI 执行时必须遵守的全局规则
-- **Skills** — 推荐的 Skills 列表
-- **Plugins** — 推荐的 Plugins 列表
-- **注意事项** — 安装和使用中的易错点
+> **使用方式**：用户给 LLM 本项目的 GitHub 链接，LLM 读取后生成会话内计划并执行。
 
 ## 项目结构
 
 ```
 .
-├── agents/        # AI Agent 安装知识
-├── platform/      # 平台环境依赖
-├── runtime/       # 语言运行时安装
-├── config/        # 配置文件指引
-├── skills/        # 推荐 Skills 列表
-├── plugins/       # 推荐 Plugins 列表
-├── notes/         # 注意事项和易错点
-├── workflows/     # 可选工作流（按场景选择）
-├── INDEX.md       # AI 入口文件
-├── RULES.md       # 全局规则
-└── .env.example   # 配置模板
+├── commons/          # 通用层：AGENTS.md（全局规则，源为 gist）、skills/plugins 通用清单
+├── agents/           # AI Agent 安装知识（按工具自包含）
+├── runtime/          # 软件注册表：前置平台、程序语言、工具（按需筛选的依据）
+├── workflows/        # 编排层：安装（全量/按需）+ 更新工作流
+├── doc/design/       # 设计文档：架构设计、任务卡片清单
+├── README.md         # 本项目文件（AI 路由入口）
+├── CHANGELOG.md
+├── LICENSE
+└── .env.example      # 配置模板
 ```
+
+## AI 路由规则
+
+1. **理解项目**：阅读本文件了解结构与定位
+2. **拉取全局规则**：按 [commons/AGENTS.md](./commons/AGENTS.md) 从 gist 拉取全局规则，作为本次会话的约束
+3. **选择工作流**：前往 [workflows/README.md](./workflows/README.md) 按场景选择（全量安装 / 按需安装 / 更新）
+4. **生成计划**：按工作流步骤生成计划（软件清单、依赖、风险），提交用户审批
+5. **执行**：获得批准后按计划执行，引用 `agents/`、`runtime/` 对应知识文档；详细命令以文档中的来源链接为准
+
+## 相关文件
+
+- [workflows/README.md](./workflows/README.md) — 工作流路由
+- [commons/AGENTS.md](./commons/AGENTS.md) — 全局规则说明（源：gist）
+- [.env.example](./.env.example) — 配置模板
